@@ -1,0 +1,14 @@
+{
+  "name": "uulife-telegram-poster",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Poster del bot de Telegram de uu.life (sin dependencias, fetch nativo).",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "post:morning": "node post.mjs --slot morning",
+    "post:evening": "node post.mjs --slot evening",
+    "dry:morning": "node post.mjs --slot morning --dry-run",
+    "dry:evening": "node post.mjs --slot evening --dry-run"
+  }
+}

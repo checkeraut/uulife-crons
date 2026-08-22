@@ -1,0 +1,35 @@
+{
+  "channel": {
+    "name": "Uu life research",
+    "username": "@uuliferesearch",
+    "bot_username": "@uulife1_bot",
+    "chat_id": "-1004331437254"
+  },
+  "store_base_url": "https://uu.life/eu",
+  "timezone": "America/Toronto",
+  "parse_mode": "HTML",
+  "disable_web_page_preview": true,
+  "compliance_footer": "",
+  "utm": {
+    "source": "telegram",
+    "medium": "channel"
+  },
+  "schedule_utc": {
+    "martes": "0 13 * * 2",
+    "viernes": "0 13 * * 5",
+    "_nota": "2x/semana (martes y viernes). 13:00 UTC ≈ 09:00 ET. GitHub Actions puede atrasar el cron unos minutos bajo carga."
+  },
+  "_links_clave": {
+    "store": "/store",
+    "coas": "/lab-testing-coas",
+    "how_it_works": "/how-peptides-work",
+    "bundle": "/bundle",
+    "faq": "/faq"
+  },
+  "_categorias": ["glp-1-metabolic", "regenerative", "gh-secretagogues", "neuropeptides"],
+  "_productos_validos": [
+    "retatrutide", "bpc-157", "tb-500", "wolverine", "cjc-with-dac", "cjc-no-dac",
+    "tesamorelin", "igf-1-lr3", "hgh", "selank", "semax", "dsip", "epithalon",
+    "nad-plus", "mots-c", "ghk-cu", "kpv", "melanotan", "glow", "klow", "pt-141"
+  ]
+}

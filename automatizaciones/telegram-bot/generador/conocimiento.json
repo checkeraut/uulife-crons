@@ -1,0 +1,192 @@
+{
+  "_nota": "Materia prima REAL y específica por péptido para que el generador escriba copy único (no hype vago). Cada entrada: plain = qué es en criollo; specifics = datos/mecanismos/ángulos concretos y verdaderos (research framing, sin claims médicos ni dosis); hook = ideas de gancho concreto. Fuente: literatura de research de cada compuesto, reencuadrada a compliance uu.life.",
+  "retatrutide": {
+    "plain": "La molécula metabólica de la que todos hablan porque toca tres palancas a la vez, no una.",
+    "specifics": [
+      "Casi todas las moléculas metabólicas activan 1 receptor. Reta activa 3: GLP-1, GIP y glucagón. Ese tercero (glucagón) es lo nuevo, y toca el GASTO de energía, no solo el apetito.",
+      "En su ensayo Fase 2, la dosis más alta registró un cambio de peso corporal promedio de ~24% en 48 semanas, de las curvas más pronunciadas jamás registradas para un solo compuesto (dato del estudio, sobre la molécula).",
+      "Trabaja CON las señales de saciedad que tu cuerpo ya usa. En mucha gente esas señales están bajas; reta les sube el volumen: la saciedad llega antes."
+    ],
+    "hook": "el 'triple agonista', o por qué de repente todos dicen el mismo nombre"
+  },
+  "bpc-157": {
+    "plain": "Un fragmento que tu propio jugo gástrico ya produce, estudiado como el 'coordinador' de la reparación de tejido.",
+    "specifics": [
+      "La research se centra en angiogénesis: formar vasos sanguíneos nuevos. Traducción: lleva materiales de reparación adonde algo se rompió. El descanso solo no hace eso.",
+      "Se estudia para tendones, ligamentos y intestino, justo las zonas que sanan lento y te recuerdan el problema todos los días.",
+      "Es 'Body Protection Compound', aislado de una proteína del estómago. No es sintético exótico: es una copia de algo que tu cuerpo ya fabrica."
+    ],
+    "hook": "por qué el descanso no alcanza para reparar (falta el flujo de sangre)"
+  },
+  "tb-500": {
+    "plain": "La pieza de recuperación que viaja por todo el cuerpo, no solo donde la ponés.",
+    "specifics": [
+      "Casi todo lo de recuperación actúa localmente. TB-500 se estudia por moverse por el sistema y aparecer donde el tejido está bajo estrés.",
+      "El mecanismo que investiga la research es migración celular: llevar células reparadoras al sitio y ayudarlas a organizarse (via actina).",
+      "Es un fragmento sintético de timosina beta-4, una proteína presente en casi todas las células. Por eso el efecto es cuerpo-entero, no puntual."
+    ],
+    "hook": "recuperación que viaja (local vs sistémico, la diferencia con BPC-157)"
+  },
+  "wolverine": {
+    "plain": "El stack que combina reparación local (BPC-157) con migración celular sistémica (TB-500).",
+    "specifics": [
+      "Uno se estudia para señalización de reparación local, el otro para migración celular en todo el cuerpo. Juntos cubren los dos ángulos a la vez.",
+      "El nombre es un chiste (el mutante que se regenera). El testeo lote por lote no lo es.",
+      "Es la razón por la que la gente de recovery los apila en vez de elegir uno."
+    ],
+    "hook": "por qué se apilan BPC-157 y TB-500 (dos ángulos, no uno)"
+  },
+  "cjc-with-dac": {
+    "plain": "No te mete hormona de crecimiento: le pide a tu propia glándula que libere más de la que ya hace.",
+    "specifics": [
+      "El 'DAC' (Drug Affinity Complex) lo hace durar días en vez de minutos. Un goteo estable en vez de cien golpecitos.",
+      "Es un análogo de GHRH: un mensaje a la pituitaria, no un repuesto. Por eso la research de secretagogos lo trata distinto a la HGH directa.",
+      "La idea no es más señal, es una señal larga y consistente."
+    ],
+    "hook": "no agrega hormona, la pide (el mensaje vs el repuesto)"
+  },
+  "cjc-no-dac": {
+    "plain": "La versión corta y filosa: un pulso rápido que imita el ritmo natural de tu cuerpo.",
+    "specifics": [
+      "Sin DAC (mod GRF 1-29) actúa corto y se limpia rápido: un pulso agudo, no un goteo largo.",
+      "Se estudia justamente porque copia la pulsatilidad natural con la que tu cuerpo libera GH (en oleadas, no constante).",
+      "Misma familia que el CJC con DAC, perfil de liberación opuesto. Cuál usa un protocolo depende de la pregunta de research."
+    ],
+    "hook": "corto y filoso vs largo y estable (DAC vs no-DAC en una línea)"
+  },
+  "tesamorelin": {
+    "plain": "Un secretagogo de GH con un ángulo metabólico que ningún otro tiene.",
+    "specifics": [
+      "Como CJC, le pide al cuerpo que libere su propia GH. Lo que lo separa en la research es el foco en grasa visceral: la profunda, la abdominal.",
+      "Es research de composición metabólica manejada por tu propia señalización, no por hormona externa.",
+      "Es el único de la familia de secretagogos con ese ángulo visceral específico."
+    ],
+    "hook": "el secretagogo con foco en la grasa visceral (research metabólico)"
+  },
+  "igf-1-lr3": {
+    "plain": "La señal de crecimiento de acción larga: un mensajero directo, no un empujoncito.",
+    "specifics": [
+      "Cuando la GH hace su trabajo, mucho del efecto downstream corre por IGF-1. La versión LR3 está diseñada para resistir las proteínas que normalmente la apagan.",
+      "Por eso se mantiene activa mucho más tiempo que la IGF-1 natural: es un mensajero directo de crecimiento y recuperación, no una nota que se libera y desaparece.",
+      "Downstream de la GH, pero directo: salta el paso de 'pedir' y entrega la señal."
+    ],
+    "hook": "la señal de crecimiento que dura (mensajero directo vs empujón)"
+  },
+  "hgh": {
+    "plain": "La hormona en sí, la señal maestra del eje de crecimiento y recuperación.",
+    "specifics": [
+      "A diferencia de los secretagogos (que le piden a tu cuerpo que produzca), la HGH ES la hormona. Es la señal directa que orquesta buena parte de la recuperación y la composición corporal.",
+      "Es el estándar contra el que se comparan todos los secretagogos (CJC, tesamorelin) que intentan lograr lo mismo por la vía indirecta.",
+      "Research de referencia del eje GH/IGF-1."
+    ],
+    "hook": "la señal maestra (la hormona directa vs pedirle a tu cuerpo)"
+  },
+  "selank": {
+    "plain": "El péptido de la calma que no te apaga.",
+    "specifics": [
+      "La compensación que todos asumen (relajarte pero quedar en la niebla) no es la única opción. Selank se estudia como ansiolítico que apunta a la calma SIN el filo pesado y somnoliento.",
+      "Deriva de la tuftsina, una molécula que tu sistema inmune ya usa. Research ruso lo mira también por BDNF (el 'fertilizante' de las neuronas).",
+      "Claro y estable es el ángulo, no sedado."
+    ],
+    "hook": "mito: calma = quedar sedado"
+  },
+  "semax": {
+    "plain": "El péptido de foco atado al BDNF.",
+    "specifics": [
+      "BDNF es básicamente fertilizante para las células del cerebro. Semax se estudia por cómo influye en esa señal: atención, memoria, aguante mental.",
+      "Es un análogo de un fragmento de ACTH, un básico de la research rusa todavía poco conocido en Occidente.",
+      "Se estudia también por neuroprotección, no solo por 'concentrarse más'."
+    ],
+    "hook": "el péptido de foco y su relación con el BDNF"
+  },
+  "dsip": {
+    "plain": "El péptido llamado literalmente por el sueño profundo.",
+    "specifics": [
+      "DSIP = Delta Sleep-Inducing Peptide. Delta es la etapa profunda y reparadora del sueño.",
+      "La research mira cómo influye en la ARQUITECTURA del sueño: la estructura de tu noche, no solo las horas.",
+      "Calidad sobre cantidad es la pregunta en la mesa. Se estudia también por su rol en la modulación del estrés."
+    ],
+    "hook": "el péptido nombrado por el sueño profundo (arquitectura, no horas)"
+  },
+  "epithalon": {
+    "plain": "El péptido de longevidad construido sobre los telómeros.",
+    "specifics": [
+      "Tus células tienen un reloj incorporado: el telómero. Se acorta cada vez que una célula se divide.",
+      "Epithalon se estudia por su efecto sobre la telomerasa, la enzima que mantiene ese reloj.",
+      "Sale de la research de péptidos de la glándula pineal (línea Khavinson). Es uno de los nombres más citados en longevidad por exactamente esa razón."
+    ],
+    "hook": "el reloj dentro de tus células (telómeros y telomerasa)"
+  },
+  "nad-plus": {
+    "plain": "La batería de cada célula, explicada simple.",
+    "specifics": [
+      "Cada célula usa NAD+ para convertir comida en energía usable y para correr sus cuadrillas de reparación de ADN.",
+      "Los niveles caen con la edad. Esa es toda la razón por la que la research de longevidad vuelve una y otra vez a esto.",
+      "Alimenta a las sirtuinas, las proteínas que la research de envejecimiento no para de estudiar."
+    ],
+    "hook": "la batería de la célula que se descarga con los años"
+  },
+  "mots-c": {
+    "plain": "Un mensaje escrito dentro de tus mitocondrias.",
+    "specifics": [
+      "Las mitocondrias no solo hacen energía: mandan sus propios péptidos-señal. MOTS-c es uno, codificado en el ADN mitocondrial.",
+      "La research lo liga a cómo el cuerpo maneja la glucosa y se adapta al ejercicio: flexibilidad metabólica a nivel celular.",
+      "Se lo estudia casi como un 'mimético del ejercicio'. Una señal que tus propias células ya hablan."
+    ],
+    "hook": "una señal escrita dentro de tus mitocondrias"
+  },
+  "ghk-cu": {
+    "plain": "El péptido de cobre que tu piel usa para mantener el colágeno firme.",
+    "specifics": [
+      "El colágeno necesita cobre para hacer cross-link y sostener su estructura. GHK-Cu lleva el cobre al tejido y dispara la señal de reparación.",
+      "Lo fabricás naturalmente. Solo que fabricás cada vez menos con la edad.",
+      "La research lo estudia para remodelación de piel y cicatrización: el lado de la firmeza."
+    ],
+    "hook": "qué tiene que ver el cobre con la piel firme"
+  },
+  "kpv": {
+    "plain": "Un fragmento diminuto de una hormona más grande, estudiado por calmar la inflamación.",
+    "specifics": [
+      "La dieta importa, pero la señalización de inflamación es su propia palanca. Ahí es donde se estudia KPV.",
+      "Es un fragmento de la alfa-MSH, investigado por calmar vías inflamatorias, intestino incluido.",
+      "Péptido chico, trabajo específico."
+    ],
+    "hook": "mito: los problemas de intestino son solo dieta"
+  },
+  "melanotan": {
+    "plain": "El péptido del bronceado, explicado.",
+    "specifics": [
+      "El pigmento de tu piel lo controlan los receptores de melanocortina. Melanotan se estudia por encender esa misma vía de pigmento: más señal de melanina en el modelo de research.",
+      "Es un receptor que tu cuerpo ya usa, abordado desde otra puerta.",
+      "La research mira la vía del pigmento, no una promesa cosmética al lector."
+    ],
+    "hook": "el receptor del pigmento que tu cuerpo ya usa"
+  },
+  "glow": {
+    "plain": "El stack de piel y recuperación que la gente no para de pedir.",
+    "specifics": [
+      "Junta en una sola línea los péptidos que la research toca del lado piel-y-recovery (GHK-Cu + regenerativos).",
+      "No es una promesa: es un combo de research popular, con cada componente COA-matched.",
+      "La razón por la que la gente lo pide por nombre en vez de armarlo suelto."
+    ],
+    "hook": "el stack de piel que piden por nombre"
+  },
+  "klow": {
+    "plain": "El stack completo: piel, recuperación e inflamación en una.",
+    "specifics": [
+      "Suma al combo de piel/recovery el ángulo antiinflamatorio (KPV). Cubre más frentes a la vez.",
+      "Es para quien quiere el paquete entero en research, no una pieza suelta.",
+      "Cada componente sale COA-matched a tu lote."
+    ],
+    "hook": "el stack completo (piel + recovery + inflamación)"
+  },
+  "pt-141": {
+    "plain": "Trabaja sobre el cerebro, no sobre la circulación.",
+    "specifics": [
+      "La mayoría de los compuestos conocidos en este espacio actúan sobre el flujo de sangre. PT-141 es distinto: la research lo mira por los receptores de melanocortina en el sistema nervioso central.",
+      "Una vía totalmente diferente. Eso es lo que lo hace interesante en la mesa de research.",
+      "Es un agonista de melanocortina, deriva de la misma familia que Melanotan pero con foco en otra respuesta."
+    ],
+    "hook": "actúa sobre el cerebro, no sobre la circulación (otra vía entera)"
+  }
+}

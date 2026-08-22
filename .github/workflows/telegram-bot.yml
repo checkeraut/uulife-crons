@@ -1,0 +1,72 @@
+name: uu.life Telegram bot
+
+# Postea 2x/semana al canal de uu.life (genera con IA desde la página; fallback al lote curado).
+# Cron en UTC: martes y viernes 13:00 ≈ 09:00 ET.
+# Requiere secrets del repo: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, OPENAI_API_KEY.
+# Si los secrets no están cargados, el run se salta limpio (no falla).
+
+on:
+  schedule:
+    - cron: '0 13 * * 2'   # martes
+    - cron: '0 13 * * 5'   # viernes
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Slot a postear'
+        type: choice
+        options: [morning, evening]
+        default: morning
+      dry_run:
+        description: 'Dry-run (no envía, solo imprime)'
+        type: boolean
+        default: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Resolver slot
+        id: slot
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=${{ github.event.inputs.slot }}" >> "$GITHUB_OUTPUT"
+            echo "dry=${{ github.event.inputs.dry_run }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 23 * * *" ]; then
+            echo "value=evening" >> "$GITHUB_OUTPUT"
+            echo "dry=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=morning" >> "$GITHUB_OUTPUT"
+            echo "dry=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Chequear secrets
+        id: check
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "::warning::Secrets del bot no configurados (TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID). Salteando el posteo. Cargalos en Settings → Secrets → Actions para activar el cron."
+            echo "ready=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Postear
+        if: steps.check.outputs.ready == '1'
+        working-directory: automatizaciones/telegram-bot
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SLOT: ${{ steps.slot.outputs.value }}
+          DRY_RUN: ${{ steps.slot.outputs.dry == 'true' && '1' || '0' }}
+        # Genera el post con la IA (fundamentado en la página). Si falla
+        # (sin key, API caída, etc.), cae al lote curado para no dejar el slot vacío.
+        run: node generador/generar.mjs || node poster/post.mjs

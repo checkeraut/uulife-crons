@@ -1,0 +1,183 @@
+{
+  "version": "v2",
+  "language": "en",
+  "start_date": "2026-06-22",
+  "loop_when_exhausted": true,
+  "_nota": "Lote curado v2 (reframe 2026-07-07): beneficio-forward, cuenta qué ES cada péptido y sus MEJORES cualidades. PROHIBIDO framing 'research/bench/researchers study/for your research' y PROHIBIDA escasez ('sells fast/reorder/shopping cart/in demand'). morning = valor/educación · evening = más liviano (tip/poll/calidad/social). Compliance piso: sin claims médicos de enfermedad (cure/treat/prevent), sin dosis, GLP-1 = apetito/metabolismo en lenguaje de estilo de vida (nunca 'weight loss'). El COA es prueba de CALIDAD, no disclaimer de research. El motor (generar.mjs) entra primero; esto es fallback.",
+  "days": [
+    {
+      "morning": {
+        "topic_id": "retatrutide", "angle_id": "A01",
+        "text": "🧬 <b>Retatrutide: the metabolic name everyone in the optimization world keeps bringing up</b>\n\nYou know that feeling when hunger runs the show? When your appetite makes the calls and you're just along for the ride?\n\nReta is built around that exact problem. It works <i>with</i> the same signals your body already uses to say \"I've had enough.\" For a lot of people those signals are quiet, or out of tune. Reta turns the volume back up. Fullness shows up sooner, and cravings stop running your day.\n\nWhat makes it stand out is reach. Most metabolic molecules touch one switch. Reta works across three, so more of the system is in play at once.\n\nThat's how it became the most talked-about name in the metabolic world almost overnight. Not hype, the kind of shift that makes people pay attention.\n\nEvery vial we carry ships with an independent lab report, matched to the exact batch in your hands. No guessing, no blind faith.\n\nThis is what a serious source looks like.",
+        "button": { "text": "See Retatrutide →", "product": "retatrutide" }
+      },
+      "evening": {
+        "topic_id": "poll",
+        "poll": {
+          "question": "Which peptide should we break down next? 🧪",
+          "options": ["Retatrutide", "BPC-157", "NAD+", "GHK-Cu"],
+          "is_anonymous": true
+        }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "bpc-157", "angle_id": "A02",
+        "text": "💡 <b>Myth: rest alone rebuilds you</b>\n\nRest helps. But what actually rebuilds tissue is blood flow to the area, carrying materials to where things broke.\n\nThat's BPC-157's whole thing. It's built around circulation and repair signaling: getting the supply line to the damage so the body can do its work.\n\nNot magic. Logistics.\n\nEvery vial ships with its own independent lab report, matched to your batch.",
+        "button": { "text": "See BPC-157 →", "product": "bpc-157" }
+      },
+      "evening": {
+        "topic_id": "ghk-cu", "angle_id": "A09",
+        "text": "✨ <b>The skin peptide isn't the one you'd guess</b>\n\nGHK-Cu is a copper peptide your body already makes, and makes less of with age.\n\nCopper is what helps collagen cross-link and stay firm. GHK-Cu carries it right to the skin.\n\nSmall molecule, big reputation on the skin side.",
+        "button": { "text": "See GHK-Cu →", "product": "ghk-cu" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "nad-plus", "angle_id": "A01",
+        "text": "⚡ <b>NAD+: your cell's battery, in plain English</b>\n\nEvery cell uses a molecule called NAD+ to turn food into usable energy and to run its repair crews.\n\nLevels drop as you age. That's the whole reason the longevity world keeps circling back to it: top up the signal, keep the lights on.\n\nOne of the most talked-about names in the aging conversation, and it comes down to energy at the cellular level.\n\nIndependent lab report in every box, matched to your batch.",
+        "button": { "text": "See NAD+ →", "product": "nad-plus" }
+      },
+      "evening": {
+        "topic_id": "coas", "angle_id": "A14",
+        "text": "🔬 <b>Why every uu.life vial ships with its own lab report</b>\n\nMost vendors say \"lab tested\" and show you nothing.\n\nWe attach a Certificate of Analysis, from an independent lab, matched to the exact batch you receive, before the box is even opened.\n\nThat's the standard. You read the paper, then you decide.",
+        "button": { "text": "View the COAs →", "path": "/lab-testing-coas" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "cjc-with-dac", "angle_id": "A01",
+        "text": "🔧 <b>CJC-1295 doesn't add hormone, it asks for it</b>\n\nInstead of putting growth hormone into the body, CJC-1295 nudges your own system to release more of what it already makes.\n\nThink of it as a message to the gland, not a replacement part. That's what sets it apart from straight HGH: your body stays in the driver's seat.\n\nIndependent lab report in every box.",
+        "button": { "text": "See CJC-1295 →", "product": "cjc-with-dac" }
+      },
+      "evening": {
+        "topic_id": "cjc-1295", "angle_id": "A06",
+        "text": "🆚 <b>CJC-1295: DAC vs no-DAC, one line each</b>\n\n• <b>With DAC</b>: sticks around longer, fewer signals needed.\n• <b>No-DAC</b> (mod GRF 1-29): short, sharp, clears quickly.\n\nSame family, different release profile. Which one you reach for comes down to the rhythm you want.\n\nBoth in the catalog, both lab-tested.",
+        "button": { "text": "Compare the line →", "path": "/categories/gh-secretagogues" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "tb-500", "angle_id": "A01",
+        "text": "🛠️ <b>TB-500: recovery that travels</b>\n\nMany recovery compounds act right where you put them. TB-500 is the one that moves through the system and shows up where tissue is under stress.\n\nIts signature move is cell migration: getting repair cells to the site and helping them organize.\n\nBody-wide, not just local.\n\nLab-tested, report in every box.",
+        "button": { "text": "See TB-500 →", "product": "tb-500" }
+      },
+      "evening": {
+        "topic_id": "wolverine", "angle_id": "A09",
+        "text": "🐺 <b>Why people pair BPC-157 and TB-500</b>\n\nOne is the local repair specialist, the other moves cells system-wide. Put them together and you cover both angles at once. That's the Wolverine combo.\n\nThe name's a joke. The lab testing isn't.",
+        "button": { "text": "See the stack →", "product": "wolverine" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "epithalon", "angle_id": "A04",
+        "text": "🧬 <b>Epithalon: the longevity peptide built on telomeres</b>\n\nYour cells carry a built-in clock called a telomere. It shortens every time a cell divides.\n\nEpithalon's whole story is telomerase, the enzyme that keeps that clock wound. Support the enzyme, protect the clock.\n\nThat's why it's one of the most talked-about names in longevity.\n\nIndependent lab report per batch.",
+        "button": { "text": "See Epithalon →", "product": "epithalon" }
+      },
+      "evening": {
+        "topic_id": "pt-141", "angle_id": "A09",
+        "text": "🌶️ <b>PT-141 works on the brain, not the bloodstream</b>\n\nMost of the well-known compounds in this space act on circulation. PT-141 is different: it works through melanocortin receptors in the central nervous system.\n\nA completely different pathway. That's what makes it stand out.",
+        "button": { "text": "See PT-141 →", "product": "pt-141" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "mots-c", "angle_id": "A01",
+        "text": "🔋 <b>MOTS-c: a message written inside your mitochondria</b>\n\nMitochondria don't just make energy. They send out their own peptide signals. MOTS-c is one of them.\n\nIt's tied to how your body handles glucose and adapts to exercise: metabolic flexibility at the cellular level.\n\nA signal your own cells already speak.\n\nLab-tested per batch.",
+        "button": { "text": "See MOTS-c →", "product": "mots-c" }
+      },
+      "evening": {
+        "topic_id": "how-it-works", "angle_id": "A14",
+        "text": "📚 <b>New here? Start with how peptides actually work</b>\n\nPeptides are short chains of amino acids, the same building blocks your body uses to send signals.\n\nNo mystery, no hype. Just messengers: signal, pathway, response.\n\nWe wrote the plain-English version so you don't need a biochem degree to follow along.",
+        "button": { "text": "Read the primer →", "path": "/how-peptides-work" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "selank", "angle_id": "A02",
+        "text": "🧠 <b>Myth: calm means sedated</b>\n\nThe trade-off everyone assumes, relax but go foggy, isn't the only option.\n\nSelank is the calm peptide that skips the heavy, drowsy edge. It takes the anxious volume down without putting you to sleep.\n\nClear and steady is the whole point.\n\nLab-tested, report in every box.",
+        "button": { "text": "See Selank →", "product": "selank" }
+      },
+      "evening": {
+        "topic_id": "semax", "angle_id": "A09",
+        "text": "🎯 <b>Semax: the focus peptide tied to BDNF</b>\n\nBDNF is basically fertilizer for brain cells. Semax works on that signal: sharper attention, better memory, more mental stamina.\n\nA Russian staple that's still under-known in the West.",
+        "button": { "text": "See Semax →", "product": "semax" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "retatrutide", "angle_id": "A06",
+        "text": "🆚 <b>Retatrutide vs Tirzepatide: how they differ</b>\n\nBoth live in the metabolic-regulation world. The difference is reach:\n\n• <b>Tirzepatide</b>: two receptors (GLP-1 + GIP).\n• <b>Retatrutide</b>: three (adds glucagon).\n\nMore pathways engaged means more of the metabolic system in play. That extra receptor is the whole conversation.\n\nBoth lab-tested per batch.",
+        "button": { "text": "See the line →", "path": "/categories/glp-1-metabolic" }
+      },
+      "evening": {
+        "topic_id": "poll",
+        "poll": {
+          "question": "What's your focus right now? 🧪",
+          "options": ["Recovery & repair", "Metabolic", "Longevity", "Cognition & sleep"],
+          "is_anonymous": true
+        }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "ghk-cu", "angle_id": "A01",
+        "text": "🧴 <b>GHK-Cu: what copper has to do with firm skin</b>\n\nCollagen needs copper to cross-link and hold its structure. GHK-Cu carries copper straight to the tissue and signals repair.\n\nThat's the firmness side of the equation: skin remodeling, driven by a mineral your body already uses.\n\nYou make GHK-Cu naturally. You just make less of it over time.\n\nLab report per batch.",
+        "button": { "text": "See GHK-Cu →", "product": "ghk-cu" }
+      },
+      "evening": {
+        "topic_id": "glow", "angle_id": "A08",
+        "text": "✨ <b>The skin stack people keep asking about</b>\n\nGlow pairs the peptides people reach for on the skin-and-recovery side into one clean line.\n\nNot a promise, just the combo that keeps coming up, every component lab-tested.",
+        "button": { "text": "See the stack →", "product": "glow" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "dsip", "angle_id": "A01",
+        "text": "😴 <b>DSIP: the peptide named after sleep itself</b>\n\nDSIP stands for Delta Sleep-Inducing Peptide. Delta is the deep, restorative stage of sleep.\n\nWhat makes it interesting is where it works: sleep architecture, the structure of your night, not just the hours you clock.\n\nQuality over quantity is the whole idea.\n\nIndependent lab report per batch.",
+        "button": { "text": "See DSIP →", "product": "dsip" }
+      },
+      "evening": {
+        "topic_id": "handling", "angle_id": "A05",
+        "text": "🧊 <b>One handling detail that protects your vials</b>\n\nPeptides are delicate. Once reconstituted, they hold up best refrigerated and away from light. Heat and rough shaking break them down.\n\nGood results start with good storage. The rest of the basics are in the FAQ.",
+        "button": { "text": "Read the handling FAQ →", "path": "/faq" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "tesamorelin", "angle_id": "A01",
+        "text": "🧬 <b>Tesamorelin: a GHRH analog with a metabolic angle</b>\n\nLike CJC, it asks the body to release its own growth hormone. What sets it apart is where the attention goes: visceral fat, the deep abdominal kind.\n\nA metabolic, body-composition angle, driven entirely by your own signaling.\n\nLab-tested per batch.",
+        "button": { "text": "See Tesamorelin →", "product": "tesamorelin" }
+      },
+      "evening": {
+        "topic_id": "kpv", "angle_id": "A02",
+        "text": "🔥 <b>Myth: gut issues are just diet</b>\n\nDiet matters. But inflammation signaling is its own lever, and that's KPV's lane.\n\nIt's a tiny fragment of a larger hormone, known for how it calms inflammatory pathways, gut included.\n\nSmall peptide, specific job.\n\nLab-tested, report in the box.",
+        "button": { "text": "See KPV →", "product": "kpv" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "igf-1-lr3", "angle_id": "A01",
+        "text": "🧬 <b>IGF-1 LR3: the long-acting growth signal</b>\n\nWhen growth hormone does its job, a lot of the downstream work runs through IGF-1. The LR3 version is engineered to stay active far longer than the natural one.\n\nIt works on cell growth and recovery signaling: a direct messenger, not just a nudge.\n\nIndependent lab report in every box.",
+        "button": { "text": "See IGF-1 LR3 →", "product": "igf-1-lr3" }
+      },
+      "evening": {
+        "topic_id": "coas", "angle_id": "A14",
+        "text": "📄 <b>The paper comes before the product</b>\n\nWe don't ask you to trust the label. Every batch goes to an independent lab, and the COA that comes back is matched to the exact vials you get.\n\nThat's the one thing most of the market won't show you. So we lead with it.",
+        "button": { "text": "View the COAs →", "path": "/lab-testing-coas" }
+      }
+    },
+    {
+      "morning": {
+        "topic_id": "melanotan", "angle_id": "A01",
+        "text": "☀️ <b>Melanotan: the tanning peptide, explained</b>\n\nSkin pigment is controlled by melanocortin receptors. Melanotan switches on that same pigment pathway: more melanin signaling, less time baking in the sun.\n\nA receptor your body already uses, approached from a different door.\n\nLab-tested per batch.",
+        "button": { "text": "See Melanotan →", "product": "melanotan" }
+      },
+      "evening": {
+        "topic_id": "store", "angle_id": "A11",
+        "text": "📦 <b>Fresh batches just cleared independent testing</b>\n\nNew lots are in, each with its own lab report tied to the exact vials it covers.\n\nIf something's been on your shortlist, the paperwork's already done. Have a look at what's in the catalog.",
+        "button": { "text": "Browse the catalog →", "path": "/store" }
+      }
+    }
+  ]
+}
