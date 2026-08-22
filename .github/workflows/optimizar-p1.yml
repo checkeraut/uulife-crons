@@ -1,0 +1,39 @@
+name: Optimizador P1 cold (siempre testeando)
+
+on:
+  schedule:
+    - cron: "30 12 * * *" # 07:30 Chicago, antes de la ventana de envío
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimizar-p1
+  cancel-in-progress: false
+
+jobs:
+  optimizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Correr optimizador
+        env:
+          INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python automatizaciones/cold-emails/optimizar-p1.py
+
+      - name: Commitear estado y reporte
+        run: |
+          git config user.name "optimizador-p1[bot]"
+          git config user.email "bot@uu.life"
+          git add automatizaciones/cold-emails/optimizador-estado.json automatizaciones/cold-emails/reporte-p1.md
+          git diff --cached --quiet && echo "sin cambios" && exit 0
+          git commit -m "optimizador P1: corrida diaria"
+          git pull --rebase origin main
+          git push

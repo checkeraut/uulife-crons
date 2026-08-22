@@ -1,0 +1,53 @@
+name: Unibox bot (respuestas cold)
+
+# Responde a los leads que CONTESTAN los cold emails. Lo que el bot no sabe
+# contestar lo escala a una persona.
+#
+# OJO — REPO PUBLICO: este workflow NO commitea `unibox-escalaciones.md`. Ese
+# archivo llevaba el email, el nombre y el texto del mensaje del lead (PII pura, y
+# con leads alemanes eso es GDPR). Ahora las escalaciones van a la BASE, que es
+# privada — ver `escalar()` en unibox-bot.py. Lo unico que se commitea es el estado
+# de mensajes ya procesados, que son UUIDs de Instantly.
+
+on:
+  schedule:
+    - cron: "*/20 7-18 * * 1-6" # cada 20 min en horario de envio/respuestas UK, lun-sab
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unibox-bot
+  cancel-in-progress: false
+
+jobs:
+  responder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar driver de Postgres
+        run: pip install --quiet "psycopg[binary]"
+
+      - name: Correr bot
+        env:
+          INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DATABASE_URL: ${{ secrets.COLD_DATABASE_URL }}
+          COLD_TABLA: uulife_cold_leads
+        run: python -u automatizaciones/cold-emails/unibox-bot.py
+
+      - name: Commitear estado (solo UUIDs, sin PII)
+        run: |
+          git config user.name "unibox-bot"
+          git config user.email "bot@uu.life"
+          git add automatizaciones/cold-emails/unibox-bot-estado.json || true
+          git diff --cached --quiet && echo "sin cambios" && exit 0
+          git commit -m "unibox bot: corrida"
+          git pull --rebase origin main
+          git push

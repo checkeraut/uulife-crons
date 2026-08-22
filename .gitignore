@@ -1,0 +1,35 @@
+# ⚠️ ESTE REPO ES PUBLICO. Lo que entre acá lo ve cualquiera.
+#
+# Existe para que los crons de uu.life corran en GitHub Actions sin consumir cuota
+# (en repos publicos Actions es gratis e ilimitado). El codigo puede ser publico;
+# los datos NO. Las credenciales van en Secrets del repo y los datos de clientes en
+# la base Postgres — nada de eso vive acá.
+#
+# Antes de agregar un archivo nuevo, preguntate: ¿tiene un email, un nombre, un
+# telefono o el texto de un mensaje de una persona? Si la respuesta es si o quizas,
+# no va.
+
+# 🔒 PII de clientes y leads — NUNCA
+listas/
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+unibox-escalaciones.md
+customer_list*
+export-eid*
+
+# 🔒 Credenciales — NUNCA (van en Secrets del repo)
+.secrets/
+*.key
+*.secret
+.env
+.env.*
+
+# Ruido local
+__pycache__/
+*.pyc
+*.log
+desktop.ini
+.DS_Store
+Thumbs.db

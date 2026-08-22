@@ -1,0 +1,26 @@
+{
+ "baseline": {
+  "ts": "2026-08-04 14:14 UTC",
+  "datos": {
+   "0": {
+    "sent": 0,
+    "opens": 0
+   },
+   "1": {
+    "sent": 0,
+    "opens": 0
+   }
+  },
+  "subjects": [
+   "your {{compound}} timeline",
+   "before your next order"
+  ]
+ },
+ "cola": [
+  "worth 60 seconds before you reorder",
+  "the certificate question",
+  "read this before you restock",
+  "one thing to check before reordering"
+ ],
+ "historial": []
+}

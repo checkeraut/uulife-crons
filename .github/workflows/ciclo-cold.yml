@@ -1,0 +1,70 @@
+name: Ciclo de vida del cold (rotacion de leads)
+
+# Que a NINGUN lead se le deje de escribir nunca, salvo que se desuscriba.
+# Rota leads dentro del tope de 25.000 del plan de Instantly: sube -> secuencia ->
+# borra (libera cupo) -> vuelve a entrar pasada su cadencia. Ver la cabecera de
+# automatizaciones/cold-emails/ciclo.py.
+#
+# POR QUE ACA Y NO EN LA PC DE JUANMA: una tarea programada de Windows no corre con
+# la maquina apagada. Esto corre en la nube todos los dias, sin depender de nadie.
+#
+# Secrets que necesita:
+#   INSTANTLY_API_KEY   - ya cargado (lo usan optimizar-p1 y unibox-bot)
+#   COLD_DATABASE_URL   - connection string de Postgres (Neon). La base guarda el
+#                         estado Y los datos del lead, porque el runner NO tiene los
+#                         CSV: son PII y estan gitignored.
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # 06:00 UTC, antes de que abra la ventana de envio (08:00 Casablanca)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry-run (no toca nada, solo muestra que haria)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: ciclo-cold
+  cancel-in-progress: false
+
+jobs:
+  ciclo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar driver de Postgres
+        run: pip install --quiet "psycopg[binary]"
+
+      # Sin base no hay memoria de supresiones: mejor fallar ruidoso que correr a
+      # ciegas contra una base vacia y creer que "no habia candidatos".
+      - name: Verificar que el secret de la base esta cargado
+        env:
+          DATABASE_URL: ${{ secrets.COLD_DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error::Falta el secret COLD_DATABASE_URL. Sin la base, el ciclo no sabe a quien NO escribirle."
+            exit 1
+          fi
+          echo "secret presente"
+
+      - name: Correr el ciclo
+        env:
+          INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
+          DATABASE_URL: ${{ secrets.COLD_DATABASE_URL }}
+          COLD_TABLA: uulife_cold_leads
+        run: |
+          python -u automatizaciones/cold-emails/ciclo.py \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+
+      - name: Estado de la base al terminar
+        if: always()
+        env:
+          DATABASE_URL: ${{ secrets.COLD_DATABASE_URL }}
+          COLD_TABLA: uulife_cold_leads
+        run: python -u automatizaciones/cold-emails/estado.py
