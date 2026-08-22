@@ -1,20 +1,20 @@
 # Reporte automático — COLD P1
 
-_Última corrida: 2026-08-19 13:24 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-08-22 13:08 UTC (optimizador diario en GitHub Actions)_
 
 ## Global (tasas POR EMAIL enviado — definición Juanma)
 | emails enviados | emails abiertos | tasa apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 1120 | 564 | 50% | 38 | 1 | 0 | 0 |
+| 1480 | 830 | 56% | 54 | 1 | 0 | 0 |
 
 ## A/B de asuntos (paso 1, acumulado)
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} timeline | 264 | 105
-| B | before your next order | 264 | 94
+| A | your {{compound}} timeline | 336 | 166
+| B | before your next order | 335 | 155
 
 ## Acción de hoy
-A/B sigue juntando datos (tasas: 40%, 36%)
+A/B sigue juntando datos (tasas: 49%, 46%)
 
 Sin alertas.
 
