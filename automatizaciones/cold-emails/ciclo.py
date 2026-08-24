@@ -184,7 +184,88 @@ def migrar(cx, dry):
 
 # ──────────────────────────────── corrida ────────────────────────────────
 
+# ─────────────────────────── escalado automatico ────────────────────────────────
+# POR QUE ESTA ACA (2026-08-24): se acordo un plan de escalones (400 -> 600 -> 800
+# -> 1.000/dia) y quedo clavado en 400 seis dias, porque dependia de que alguien se
+# acordara de subirlo a mano. Ahora lo hace el ciclo, todos los dias, y solo si los
+# numeros lo permiten. Un escalon por dia: los saltos grandes de golpe son lo que
+# quema dominios, no el volumen alto en si.
+OBJETIVO_POR_CASILLA = 50     # techo al que queremos llegar
+PASO_POR_CASILLA     = 5      # cuanto sube por dia como maximo
+APERTURA_MINIMA      = 30.0   # % — por debajo, no sube (estamos cayendo en spam)
+REBOTES_MAXIMO       = 2.0    # % — por encima, no sube
+CONTACTADOS_MINIMOS  = 300    # con menos datos que esto, las tasas no son confiables
+
+
+def salud_del_canal():
+    """(apertura %, rebotes %, personas contactadas) acumulado de las cold activas."""
+    d = api("GET", "https://api.instantly.ai/api/v2/campaigns/analytics") or []
+    cont = op = reb = 0
+    for c in d:
+        if not str(c.get("campaign_name", "")).startswith("[COLD]") or c.get("campaign_status") != 1:
+            continue
+        cont += c.get("contacted_count", 0) or 0
+        op   += c.get("open_count_unique", 0) or 0
+        reb  += c.get("bounced_count", 0) or 0
+    if not cont:
+        return 0.0, 0.0, 0
+    return 100.0 * op / cont, 100.0 * reb / cont, cont
+
+
+def escalar_volumen(dry):
+    """Sube un escalon el limite diario por casilla, si la salud lo permite."""
+    cuentas = [a for a in listar_casillas_cold() if a.get("status") == 1]
+    if not cuentas:
+        print("escalado: no hay casillas sanas.")
+        return
+    actual = min(a.get("daily_limit") or 0 for a in cuentas)
+    if actual >= OBJETIVO_POR_CASILLA:
+        print(f"escalado: ya en el objetivo ({actual}/casilla × {len(cuentas)} = "
+              f"{actual * len(cuentas)}/dia). Sin cambios.")
+        return
+    ap, reb, cont = salud_del_canal()
+    if cont < CONTACTADOS_MINIMOS:
+        print(f"escalado: solo {cont} contactados, muy poca data para decidir. No sube.")
+        return
+    if ap < APERTURA_MINIMA or reb > REBOTES_MAXIMO:
+        print(f"escalado: FRENADO — apertura {ap:.1f}% (min {APERTURA_MINIMA}) | "
+              f"rebotes {reb:.2f}% (max {REBOTES_MAXIMO}). Se sostiene en {actual}/casilla.")
+        return
+    nuevo = min(actual + PASO_POR_CASILLA, OBJETIVO_POR_CASILLA)
+    print(f"escalado: salud OK (apertura {ap:.1f}%, rebotes {reb:.2f}%) -> "
+          f"{actual} a {nuevo} por casilla = {nuevo * len(cuentas)}/dia")
+    if dry:
+        return
+    for a in cuentas:
+        api("PATCH", f"https://api.instantly.ai/api/v2/accounts/{a['email']}", {"daily_limit": nuevo})
+    # los topes de campana se reparten proporcional a como estan hoy
+    topes = {}
+    for seg in SEGMENTOS:
+        c = api("GET", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}")
+        topes[seg] = c.get("daily_limit") or 0
+    suma = sum(topes.values()) or 1
+    objetivo_total = nuevo * len(cuentas)
+    for seg, v in topes.items():
+        nv = max(1, round(objetivo_total * v / suma))
+        api("PATCH", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}", {"daily_limit": nv})
+        print(f"    {seg}: {v} -> {nv}/dia")
+
+
+def listar_casillas_cold():
+    """Las casillas que usan las campanas cold (las lee de la campana, no hardcodeadas)."""
+    emails, out = set(), []
+    for seg in SEGMENTOS:
+        c = api("GET", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}")
+        emails |= set(c.get("email_list") or [])
+    for e in sorted(emails):
+        a = api("GET", f"https://api.instantly.ai/api/v2/accounts/{e}")
+        if a.get("email"):
+            out.append(a)
+    return out
+
+
 def correr(cx, dry):
+    escalar_volumen(dry)          # primero el escalon del dia, despues la rotacion
     total_borrados = total_subidos = 0
     # El presupuesto se reparte por segmento: si no, el primero se lo come entero y
     # los demas no drenan nunca. Los terminados/rebotes/unsub NO gastan presupuesto:
