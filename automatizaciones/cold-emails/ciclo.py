@@ -245,37 +245,68 @@ def escalar_volumen(dry):
     repartir_topes(siguiente)
 
 
+# Cuanto puede pesar el rendimiento en el reparto. Con 2.0, una campana que convierte
+# el doble que el promedio recibe el doble del volumen que le tocaria por tamano de
+# lista. Acotado en ambas puntas para que una campana buena pero chica no se coma
+# todo el volumen y agote su lista en dos semanas.
+PESO_RENDIMIENTO_MIN = 0.5
+PESO_RENDIMIENTO_MAX = 2.0
+
+
+def clicks_por_campana():
+    """% de clicks unicos sobre personas contactadas, por segmento."""
+    d = api("GET", "https://api.instantly.ai/api/v2/campaigns/analytics") or []
+    por_id = {c.get("campaign_id"): c for c in d}
+    out = {}
+    for seg in SEGMENTOS:
+        c = por_id.get(CAMPANAS[seg]) or {}
+        cont = c.get("contacted_count", 0) or 0
+        out[seg] = (100.0 * (c.get("link_click_count_unique", 0) or 0) / cont) if cont else 0.0
+    return out
+
+
 def repartir_topes(objetivo_total, cx=None):
-    """Reparte el volumen entre campanas SEGUN LA LISTA QUE LE QUEDA A CADA UNA.
+    """Reparte el volumen entre campanas por LISTA DISPONIBLE y por RENDIMIENTO.
 
-    Repartir proporcional al tope actual (que era lo que hacia antes) le sube el
-    volumen a campanas que ya no tienen a quien escribirle: P1-EU tiene 0 leads sin
-    contactar, asi que darle mas emails/dia no manda un solo email mas — solo deja
-    la cuota sin usar mientras UK, que tiene 38.000 esperando, se queda corta.
+    Dos correcciones sobre lo que hacia antes:
 
-    Se reparte proporcional a los leads disponibles de cada segmento (sin contactar
-    + los que ya cumplieron su cadencia). Una campana sin leads no recibe aumento:
-    se queda con lo justo para terminar de mandarle a los que ya tiene en vuelo.
+    1) Repartir proporcional al tope actual le subia el volumen a campanas que ya no
+       tenian a quien escribirle. Darle mas emails/dia a una campana sin leads no
+       manda uno solo mas: deja la cuota sin usar mientras otra se queda corta.
+
+    2) Repartir solo por tamano de lista manda el grueso del volumen por el canal que
+       peor convierte, nada mas que porque es el que tiene mas nombres. Medido el
+       2026-08-24: P1-EU 4,33% de clicks contra 1,43% de P2-UK — tres veces mejor —
+       y le tocaba el 10% del volumen. Ahora el reparto pondera tambien por clicks,
+       acotado para que una campana chica no queme su lista en dos semanas.
     """
     propio = cx is None
     if propio:
         cx = estado.conectar(); estado.init(cx)
     try:
-        disp = {}
-        for seg in SEGMENTOS:
-            disp[seg] = len(candidatos_sin_hueco(cx, seg, 100000))
+        disp = {seg: len(candidatos_sin_hueco(cx, seg, 100000)) for seg in SEGMENTOS}
         total_disp = sum(disp.values())
-        print("    lista disponible por campana: " +
-              " | ".join(f"{s}={n:,}" for s, n in disp.items()))
         if not total_disp:
             print("    NINGUNA campana tiene leads disponibles — no se reparte nada.")
             return
+        clicks = clicks_por_campana()
+        promedio = (sum(clicks.values()) / len([c for c in clicks.values() if c])) if any(clicks.values()) else 0
+        pesos = {}
+        for seg in SEGMENTOS:
+            if promedio and clicks[seg]:
+                f = min(PESO_RENDIMIENTO_MAX, max(PESO_RENDIMIENTO_MIN, clicks[seg] / promedio))
+            else:
+                f = 1.0
+            pesos[seg] = disp[seg] * f
+        total_peso = sum(pesos.values()) or 1
+        print("    lista disponible: " + " | ".join(f"{s}={n:,}" for s, n in disp.items()))
+        print("    clicks: " + " | ".join(f"{s}={clicks[s]:.2f}%" for s in SEGMENTOS))
         for seg in SEGMENTOS:
             actual = api("GET", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}").get("daily_limit") or 0
             if not disp[seg]:
-                print(f"    {seg}: {actual}/dia (SIN LISTA — no se le sube; se apaga sola al terminar los en vuelo)")
+                print(f"    {seg}: {actual}/dia (SIN LISTA — no se le sube)")
                 continue
-            nv = max(1, round(objetivo_total * disp[seg] / total_disp))
+            nv = max(1, round(objetivo_total * pesos[seg] / total_peso))
             api("PATCH", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}", {"daily_limit": nv})
             dias = round(disp[seg] / max(1, nv / PASOS))
             print(f"    {seg}: {actual} -> {nv}/dia   (le alcanza para ~{dias} dias)")
