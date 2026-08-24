@@ -50,6 +50,12 @@ TABLA = os.environ.get("COLD_TABLA", "leads")
 #            las quejas de spam y quema los dominios (y ahi se pierden TODOS).
 DIAS_WARM = 14
 DIAS_FRIO = 42
+# Piso duro: por debajo de esto NO se le vuelve a escribir a nadie, pase lo que
+# pase. La cadencia se relaja cuando una campana se quedaria sin leads (que no se
+# apague nunca es el pedido), pero escribirle a la misma persona mas seguido que
+# esto es lo que genera quejas de spam — y las quejas no queman al lead: queman
+# el dominio, y ahi se pierden todos.
+PISO_DIAS = 7
 
 UNSUB     = "desuscripto"
 REBOTE    = "reboto"
@@ -298,18 +304,24 @@ def suprimidos(cx):
     return {f["email"] for f in cx.filas("SELECT email FROM {T} WHERE suprimido=1")}
 
 
-def candidatos(cx, segmento, limite):
+def candidatos(cx, segmento, limite, dias_warm=None, dias_frio=None):
     """A quien le toca recibir, en orden de prioridad.
 
     1) Los que nunca recibieron nada (ciclo 0) — primero agotar la lista fresca.
     2) Los que ya cumplieron su cadencia, el que hace mas tiempo que no recibe.
 
+    `dias_warm` / `dias_frio` permiten relajar la cadencia cuando una campana se
+    quedaria sin nadie a quien escribirle (ver `candidatos_sin_hueco` en ciclo.py).
+    Nunca por debajo de PISO_DIAS.
+
     Nunca devuelve suprimidos: el filtro esta en el WHERE, no en el codigo que
     llama, para que no se pueda olvidar.
     """
+    dias_warm = max(PISO_DIAS, dias_warm if dias_warm is not None else DIAS_WARM)
+    dias_frio = max(PISO_DIAS, dias_frio if dias_frio is not None else DIAS_FRIO)
     hoy = datetime.now(timezone.utc)
-    corte_warm = (hoy - timedelta(days=DIAS_WARM)).isoformat(timespec="seconds")
-    corte_frio = (hoy - timedelta(days=DIAS_FRIO)).isoformat(timespec="seconds")
+    corte_warm = (hoy - timedelta(days=dias_warm)).isoformat(timespec="seconds")
+    corte_frio = (hoy - timedelta(days=dias_frio)).isoformat(timespec="seconds")
     return cx.filas("""
         SELECT email, ciclo, aperturas, clicks, ultimo_contacto, datos FROM {T}
         WHERE segmento = ? AND suprimido = 0

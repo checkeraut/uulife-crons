@@ -190,8 +190,10 @@ def migrar(cx, dry):
 # acordara de subirlo a mano. Ahora lo hace el ciclo, todos los dias, y solo si los
 # numeros lo permiten. Un escalon por dia: los saltos grandes de golpe son lo que
 # quema dominios, no el volumen alto en si.
-OBJETIVO_POR_CASILLA = 50     # techo al que queremos llegar
-PASO_POR_CASILLA     = 5      # cuanto sube por dia como maximo
+# Escalones de volumen TOTAL por dia, uno por corrida. Los pidio Juanma asi
+# (2026-08-24): subir de a poco en vez de saltar al techo. Los saltos grandes de
+# golpe son lo que quema dominios, no el volumen alto en si.
+ESCALONES = [550, 700, 850, 1000]
 APERTURA_MINIMA      = 30.0   # % — por debajo, no sube (estamos cayendo en spam)
 REBOTES_MAXIMO       = 2.0    # % — por encima, no sube
 CONTACTADOS_MINIMOS  = 300    # con menos datos que esto, las tasas no son confiables
@@ -213,15 +215,17 @@ def salud_del_canal():
 
 
 def escalar_volumen(dry):
-    """Sube un escalon el limite diario por casilla, si la salud lo permite."""
+    """Pasa al siguiente escalon de volumen, si la salud del canal lo permite."""
     cuentas = [a for a in listar_casillas_cold() if a.get("status") == 1]
     if not cuentas:
         print("escalado: no hay casillas sanas.")
         return
-    actual = min(a.get("daily_limit") or 0 for a in cuentas)
-    if actual >= OBJETIVO_POR_CASILLA:
-        print(f"escalado: ya en el objetivo ({actual}/casilla × {len(cuentas)} = "
-              f"{actual * len(cuentas)}/dia). Sin cambios.")
+    n = len(cuentas)
+    hoy_total = min(a.get("daily_limit") or 0 for a in cuentas) * n
+    # el escalon siguiente es el primero que supere lo que mandamos hoy
+    siguiente = next((e for e in ESCALONES if e > hoy_total), None)
+    if siguiente is None:
+        print(f"escalado: ya en el techo ({hoy_total}/dia con {n} casillas). Sin cambios.")
         return
     ap, reb, cont = salud_del_canal()
     if cont < CONTACTADOS_MINIMOS:
@@ -229,16 +233,16 @@ def escalar_volumen(dry):
         return
     if ap < APERTURA_MINIMA or reb > REBOTES_MAXIMO:
         print(f"escalado: FRENADO — apertura {ap:.1f}% (min {APERTURA_MINIMA}) | "
-              f"rebotes {reb:.2f}% (max {REBOTES_MAXIMO}). Se sostiene en {actual}/casilla.")
+              f"rebotes {reb:.2f}% (max {REBOTES_MAXIMO}). Se sostiene en {hoy_total}/dia.")
         return
-    nuevo = min(actual + PASO_POR_CASILLA, OBJETIVO_POR_CASILLA)
+    por_casilla = max(1, ceil(siguiente / n))
     print(f"escalado: salud OK (apertura {ap:.1f}%, rebotes {reb:.2f}%) -> "
-          f"{actual} a {nuevo} por casilla = {nuevo * len(cuentas)}/dia")
+          f"{hoy_total} a {siguiente}/dia ({por_casilla} por casilla × {n})")
     if dry:
         return
     for a in cuentas:
-        api("PATCH", f"https://api.instantly.ai/api/v2/accounts/{a['email']}", {"daily_limit": nuevo})
-    repartir_topes(nuevo * len(cuentas))
+        api("PATCH", f"https://api.instantly.ai/api/v2/accounts/{a['email']}", {"daily_limit": por_casilla})
+    repartir_topes(siguiente)
 
 
 def repartir_topes(objetivo_total, cx=None):
@@ -259,7 +263,7 @@ def repartir_topes(objetivo_total, cx=None):
     try:
         disp = {}
         for seg in SEGMENTOS:
-            disp[seg] = len(estado.candidatos(cx, seg, 100000))
+            disp[seg] = len(candidatos_sin_hueco(cx, seg, 100000))
         total_disp = sum(disp.values())
         print("    lista disponible por campana: " +
               " | ".join(f"{s}={n:,}" for s, n in disp.items()))
@@ -291,6 +295,34 @@ def listar_casillas_cold():
         if a.get("email"):
             out.append(a)
     return out
+
+
+# Escalera de relajacion de cadencia. Se baja un escalon por vez, y SOLO si con el
+# anterior la campana se quedaria sin nadie a quien escribirle. El ultimo par es el
+# piso: `estado.candidatos` no acepta menos de PISO_DIAS pase lo que pase.
+RELAJACION = [(estado.DIAS_WARM, estado.DIAS_FRIO), (10, 28), (estado.PISO_DIAS, 14)]
+
+
+def candidatos_sin_hueco(cx, seg, faltan):
+    """Candidatos para una campana, relajando la cadencia si haria falta.
+
+    POR QUE (pedido de Juanma, 2026-08-24): "no puede apagarse nunca, todo el tiempo
+    tenemos que estar metiendo leads, nuevos y reutilizando viejos". Con la cadencia
+    fija quedaban huecos: P1-EU contacto sus 6.902 leads y despues no tenia a nadie
+    elegible hasta que pasaran 14 dias, asi que la campana se apagaba sola.
+
+    Ahora, si con la cadencia normal no hay nadie, se prueba con una mas corta. El
+    piso es intocable: nunca se le escribe a la misma persona con menos de
+    PISO_DIAS de diferencia.
+    """
+    for i, (dw, df) in enumerate(RELAJACION):
+        c = estado.candidatos(cx, seg, faltan, dias_warm=dw, dias_frio=df)
+        if c:
+            if i:
+                print(f"    cadencia relajada a warm {dw}d / frio {df}d "
+                      f"(con la normal no habia nadie; piso {estado.PISO_DIAS}d)")
+            return c
+    return []
 
 
 def dkim_publicado(dominio):
@@ -419,10 +451,10 @@ def correr(cx, dry):
             print(f"  reponer: SIN CUPO (reserva hot={RESERVA_HOT} intocable). "
                   f"El borrado de arriba libera lugar para la proxima corrida.")
             continue
-        cands = estado.candidatos(cx, seg, cupo_real)
+        cands = candidatos_sin_hueco(cx, seg, cupo_real)
         if not cands:
-            print(f"  reponer: no hay candidatos que cumplan la cadencia todavia "
-                  f"(warm {estado.DIAS_WARM}d / frio {estado.DIAS_FRIO}d).")
+            print(f"  reponer: SIN NADIE a quien escribirle, ni relajando al piso de "
+                  f"{estado.PISO_DIAS} dias. La lista de este segmento se agoto de verdad.")
             continue
         bloqueados = estado.suprimidos(cx)          # cinturon Y tirantes
         tanda = [f for f in (datos_de(c) for c in cands
