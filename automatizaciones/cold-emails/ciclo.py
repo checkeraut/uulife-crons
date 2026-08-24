@@ -238,17 +238,46 @@ def escalar_volumen(dry):
         return
     for a in cuentas:
         api("PATCH", f"https://api.instantly.ai/api/v2/accounts/{a['email']}", {"daily_limit": nuevo})
-    # los topes de campana se reparten proporcional a como estan hoy
-    topes = {}
-    for seg in SEGMENTOS:
-        c = api("GET", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}")
-        topes[seg] = c.get("daily_limit") or 0
-    suma = sum(topes.values()) or 1
-    objetivo_total = nuevo * len(cuentas)
-    for seg, v in topes.items():
-        nv = max(1, round(objetivo_total * v / suma))
-        api("PATCH", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}", {"daily_limit": nv})
-        print(f"    {seg}: {v} -> {nv}/dia")
+    repartir_topes(nuevo * len(cuentas))
+
+
+def repartir_topes(objetivo_total, cx=None):
+    """Reparte el volumen entre campanas SEGUN LA LISTA QUE LE QUEDA A CADA UNA.
+
+    Repartir proporcional al tope actual (que era lo que hacia antes) le sube el
+    volumen a campanas que ya no tienen a quien escribirle: P1-EU tiene 0 leads sin
+    contactar, asi que darle mas emails/dia no manda un solo email mas — solo deja
+    la cuota sin usar mientras UK, que tiene 38.000 esperando, se queda corta.
+
+    Se reparte proporcional a los leads disponibles de cada segmento (sin contactar
+    + los que ya cumplieron su cadencia). Una campana sin leads no recibe aumento:
+    se queda con lo justo para terminar de mandarle a los que ya tiene en vuelo.
+    """
+    propio = cx is None
+    if propio:
+        cx = estado.conectar(); estado.init(cx)
+    try:
+        disp = {}
+        for seg in SEGMENTOS:
+            disp[seg] = len(estado.candidatos(cx, seg, 100000))
+        total_disp = sum(disp.values())
+        print("    lista disponible por campana: " +
+              " | ".join(f"{s}={n:,}" for s, n in disp.items()))
+        if not total_disp:
+            print("    NINGUNA campana tiene leads disponibles — no se reparte nada.")
+            return
+        for seg in SEGMENTOS:
+            actual = api("GET", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}").get("daily_limit") or 0
+            if not disp[seg]:
+                print(f"    {seg}: {actual}/dia (SIN LISTA — no se le sube; se apaga sola al terminar los en vuelo)")
+                continue
+            nv = max(1, round(objetivo_total * disp[seg] / total_disp))
+            api("PATCH", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}", {"daily_limit": nv})
+            dias = round(disp[seg] / max(1, nv / PASOS))
+            print(f"    {seg}: {actual} -> {nv}/dia   (le alcanza para ~{dias} dias)")
+    finally:
+        if propio:
+            cx.close()
 
 
 def listar_casillas_cold():
