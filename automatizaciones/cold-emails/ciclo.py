@@ -32,7 +32,7 @@ ORDEN DE CADA CORRIDA
 
 NUNCA se borra a alguien que respondio: esos los atiende una persona.
 """
-import argparse, csv, json, sys, time
+import argparse, csv, json, subprocess, sys, time
 from concurrent.futures import ThreadPoolExecutor
 from math import ceil
 from pathlib import Path
@@ -264,7 +264,47 @@ def listar_casillas_cold():
     return out
 
 
+def dkim_publicado(dominio):
+    """True si el dominio tiene el selector1 de DKIM resolviendo en DNS publico."""
+    try:
+        out = subprocess.run(
+            ["curl", "-s", "--max-time", "15", "-H", "accept: application/dns-json",
+             f"https://cloudflare-dns.com/dns-query?name=selector1._domainkey.{dominio}&type=CNAME"],
+            capture_output=True, text=True, encoding="utf-8").stdout
+        return bool(json.loads(out or "{}").get("Answer"))
+    except Exception:
+        return True    # ante la duda no alarmamos: el chequeo no debe frenar el ciclo
+
+
+def alertar_dkim_faltante():
+    """Grita si alguna casilla EN CAMPANA manda desde un dominio sin DKIM.
+
+    Sin DKIM, Gmail y Outlook desconfian del remitente y los emails caen en spam:
+    una casilla asi quema su dominio en dias. Paso dos veces (tandas 2 y 3): se
+    configura MX, SPF y DMARC, y el DKIM queda afuera porque Microsoft no lo genera
+    solo — hay que crear la config en Exchange Y publicar los CNAME que devuelve.
+    Crear la config sin publicar los CNAME NO firma nada, aunque el panel liste el
+    dominio como si estuviera. Por eso el chequeo es contra el DNS, no contra el panel.
+    """
+    dominios = set()
+    for seg in SEGMENTOS:
+        c = api("GET", f"https://api.instantly.ai/api/v2/campaigns/{CAMPANAS[seg]}")
+        for e in (c.get("email_list") or []):
+            if "@" in e:
+                dominios.add(e.split("@")[1].lower())
+    faltan = [d for d in sorted(dominios) if not dkim_publicado(d)]
+    if faltan:
+        print("*** ALERTA DKIM: estos dominios estan EN CAMPANA y no firman ***")
+        for d in faltan:
+            print(f"      {d}")
+        print("      Sus emails van a spam. Arreglar con:")
+        print("      pwsh -File preparar-dkim.ps1 && python publicar-dkim.py && pwsh -File habilitar-dkim.ps1")
+    else:
+        print(f"DKIM: los {len(dominios)} dominios en campana firman OK.")
+
+
 def correr(cx, dry):
+    alertar_dkim_faltante()       # que no vuelva a pasar lo de las tandas 2 y 3
     escalar_volumen(dry)          # primero el escalon del dia, despues la rotacion
     total_borrados = total_subidos = 0
     # El presupuesto se reparte por segmento: si no, el primero se lo come entero y
