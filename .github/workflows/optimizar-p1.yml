@@ -1,4 +1,4 @@
-name: Optimizador P1 cold (siempre testeando)
+name: Optimizador A/B cold (las 3 campanas)
 
 on:
   schedule:
@@ -26,13 +26,13 @@ jobs:
         env:
           INSTANTLY_API_KEY: ${{ secrets.INSTANTLY_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python automatizaciones/cold-emails/optimizar-p1.py
+        run: python -u automatizaciones/cold-emails/optimizar-ab.py
 
       - name: Commitear estado y reporte
         run: |
           git config user.name "optimizador-p1[bot]"
           git config user.email "bot@uu.life"
-          git add automatizaciones/cold-emails/optimizador-estado.json automatizaciones/cold-emails/reporte-p1.md
+          git add automatizaciones/cold-emails/optimizador-estado.json automatizaciones/cold-emails/reporte-ab.md
           git diff --cached --quiet && echo "sin cambios" && exit 0
           git commit -m "optimizador P1: corrida diaria"
           git pull --rebase origin main

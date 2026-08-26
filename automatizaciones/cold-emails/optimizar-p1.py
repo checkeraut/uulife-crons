@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+⚠️ REEMPLAZADO POR `optimizar-ab.py` (2026-08-26). NO correr los dos: comparten
+`optimizador-estado.json` y se pisarian el baseline.
+
+Este solo optimizaba P1-EU. Las otras dos campañas nunca testearon nada — y P2-EU-UK
+es justamente la de peor rendimiento y la que mas volumen se lleva. `optimizar-ab.py`
+corre las tres, cada una con su propio angulo e idioma para generar retadores.
+
+──────────────────────────────────────────────────────────────────────────────
 Optimizador perpetuo del A/B de asuntos de la campaña COLD P1 ("siempre testeando").
 
 Corre a diario en GitHub Actions (.github/workflows/optimizar-p1.yml):

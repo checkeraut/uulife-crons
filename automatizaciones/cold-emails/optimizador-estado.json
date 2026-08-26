@@ -1,26 +1,80 @@
 {
- "baseline": {
-  "ts": "2026-08-04 14:14 UTC",
-  "datos": {
-   "0": {
-    "sent": 0,
-    "opens": 0
+ "p1eu": {
+  "baseline": {
+   "ts": "2026-08-04 14:14 UTC",
+   "datos": {
+    "0": {
+     "sent": 0,
+     "opens": 0
+    },
+    "1": {
+     "sent": 0,
+     "opens": 0
+    }
    },
-   "1": {
-    "sent": 0,
-    "opens": 0
-   }
+   "subjects": [
+    "your {{compound}} timeline",
+    "before your next order"
+   ]
   },
-  "subjects": [
-   "your {{compound}} timeline",
-   "before your next order"
-  ]
+  "cola": [
+   "worth 60 seconds before you reorder",
+   "the certificate question",
+   "read this before you restock",
+   "one thing to check before reordering"
+  ],
+  "historial": []
  },
- "cola": [
-  "worth 60 seconds before you reorder",
-  "the certificate question",
-  "read this before you restock",
-  "one thing to check before reordering"
- ],
- "historial": []
+ "p2euuk": {
+  "baseline": {
+   "ts": "2026-08-26 21:00 UTC",
+   "datos": {
+    "1": {
+     "sent": 838,
+     "opens": 363
+    },
+    "0": {
+     "sent": 838,
+     "opens": 381
+    }
+   },
+   "subjects": [
+    "your 10% welcome code is inside",
+    "a 10% hello from uu.life"
+   ]
+  },
+  "cola": [
+   "the question most vendors dodge",
+   "before you buy from anyone",
+   "your 10% is still open",
+   "what the lab report actually says"
+  ],
+  "historial": []
+ },
+ "p2eude": {
+  "baseline": {
+   "ts": "2026-08-26 21:00 UTC",
+   "datos": {
+    "1": {
+     "sent": 323,
+     "opens": 113
+    },
+    "0": {
+     "sent": 322,
+     "opens": 118
+    }
+   },
+   "subjects": [
+    "dein 10% Willkommenscode ist hier",
+    "ein 10% Hallo von uu.life"
+   ]
+  },
+  "cola": [
+   "die Frage, die kaum ein Anbieter beantwortet",
+   "bevor du irgendwo bestellst",
+   "dein 10% Code ist noch offen",
+   "was im Laborbericht wirklich steht"
+  ],
+  "historial": []
+ }
 }
