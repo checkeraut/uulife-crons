@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-08-26 21:00 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-08-27 22:27 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,14 +8,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 1964 | 1136 | 57% | 70 | 1 | 0 | 0 |
+| 2097 | 1225 | 58% | 76 | 2 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} timeline | 402 | 209 |
-| B | before your next order | 403 | 196 |
+| A | your {{compound}} timeline | 423 | 222 |
+| B | before your next order | 423 | 203 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=52%, B=49%)
+**Acción:** A/B sigue juntando datos (tasas: A=52%, B=48%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -26,14 +26,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 3710 | 1620 | 43% | 50 | 6 | 1 | 0 |
+| 4081 | 1849 | 45% | 54 | 7 | 1 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your 10% welcome code is inside | 838 | 381 |
-| B | a 10% hello from uu.life | 838 | 363 |
+| A | your 10% welcome code is inside | 913 | 443 |
+| B | a 10% hello from uu.life | 912 | 416 |
 
-**Acción:** baseline inicial establecido
+**Acción:** A/B sigue juntando datos (tasas: A=83%, B=72%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -44,14 +44,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 1196 | 505 | 42% | 30 | 4 | 2 | 0 |
+| 1392 | 631 | 45% | 38 | 4 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | dein 10% Willkommenscode ist hier | 322 | 118 |
-| B | ein 10% Hallo von uu.life | 323 | 113 |
+| A | dein 10% Willkommenscode ist hier | 392 | 149 |
+| B | ein 10% Hallo von uu.life | 392 | 150 |
 
-**Acción:** baseline inicial establecido
+**Acción:** A/B sigue juntando datos (tasas: A=44%, B=54%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
