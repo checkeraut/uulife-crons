@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-08-29 16:49 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-08-30 16:52 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,14 +8,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 2435 | 1306 | 53% | 81 | 3 | 0 | 0 |
+| 2591 | 1342 | 51% | 84 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} timeline | 492 | 236 |
-| B | before your next order | 491 | 210 |
+| A | your {{compound}} timeline | 549 | 244 |
+| B | before your next order | 549 | 216 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=48%, B=43%)
+**Acción:** A/B sigue juntando datos (tasas: A=44%, B=39%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -26,14 +26,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 5077 | 2093 | 41% | 68 | 7 | 2 | 0 |
+| 5583 | 2178 | 39% | 71 | 7 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your 10% welcome code is inside | 1114 | 486 |
-| B | a 10% hello from uu.life | 1114 | 450 |
+| A | your 10% welcome code is inside | 1280 | 502 |
+| B | a 10% hello from uu.life | 1280 | 462 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=38%, B=32%)
+**Acción:** A/B sigue juntando datos (tasas: A=27%, B=22%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -44,14 +44,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 2031 | 789 | 38% | 67 | 7 | 3 | 0 |
+| 2369 | 875 | 36% | 86 | 8 | 3 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | dein 10% Willkommenscode ist hier | 536 | 184 |
-| B | ein 10% Hallo von uu.life | 536 | 176 |
+| A | dein 10% Willkommenscode ist hier | 633 | 200 |
+| B | ein 10% Hallo von uu.life | 632 | 199 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=31%, B=30%)
+**Acción:** A/B sigue juntando datos (tasas: A=26%, B=28%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
