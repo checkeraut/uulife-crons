@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-08-31 19:10 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-09-01 16:48 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 2747 | 1380 | 50% | 86 | 3 | 0 | 0 |
+| 2747 | 1399 | 50% | 86 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} timeline | 595 | 253 |
-| B | before your next order | 595 | 220 |
+| A | your {{compound}} timeline | 595 | 255 |
+| B | before your next order | 595 | 221 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=43%, B=37%)
 
@@ -26,14 +26,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 6089 | 2279 | 37% | 75 | 8 | 2 | 0 |
+| 6089 | 2324 | 38% | 75 | 8 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your 10% welcome code is inside | 1417 | 516 |
-| B | a 10% hello from uu.life | 1417 | 478 |
+| A | your 10% welcome code is inside | 1417 | 526 |
+| B | a 10% hello from uu.life | 1417 | 486 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=23%, B=20%)
+**Acción:** A/B sigue juntando datos (tasas: A=25%, B=21%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -44,14 +44,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 2707 | 988 | 36% | 95 | 11 | 3 | 0 |
+| 2707 | 1014 | 37% | 99 | 11 | 3 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | dein 10% Willkommenscode ist hier | 733 | 218 |
-| B | ein 10% Hallo von uu.life | 733 | 227 |
+| A | dein 10% Willkommenscode ist hier | 733 | 224 |
+| B | ein 10% Hallo von uu.life | 733 | 228 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=24%, B=28%)
+**Acción:** A/B sigue juntando datos (tasas: A=26%, B=28%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
