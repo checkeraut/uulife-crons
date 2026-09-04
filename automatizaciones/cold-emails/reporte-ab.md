@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-09-03 16:35 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-09-04 16:30 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 2747 | 1425 | 51% | 86 | 3 | 0 | 0 |
+| 2903 | 1464 | 50% | 89 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} timeline | 595 | 259 |
-| B | before your next order | 595 | 222 |
+| A | your {{compound}} reorder | 607 | 265 |
+| B | the part of reordering nobody checks | 607 | 224 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=44%, B=37%)
 
@@ -26,14 +26,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 6089 | 2387 | 39% | 75 | 8 | 2 | 0 |
+| 6565 | 2479 | 37% | 78 | 8 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your 10% welcome code is inside | 1417 | 541 |
-| B | a 10% hello from uu.life | 1417 | 496 |
+| A | what most peptide vendors will not show you | 1433 | 548 |
+| B | your 10% code, and the paperwork behind it | 1433 | 504 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=28%, B=23%)
+**Acción:** A/B sigue juntando datos (tasas: A=28%, B=24%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -44,12 +44,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 2707 | 1052 | 38% | 99 | 11 | 3 | 0 |
+| 3045 | 1128 | 37% | 114 | 11 | 3 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | dein 10% Willkommenscode ist hier | 733 | 233 |
-| B | ein 10% Hallo von uu.life | 733 | 235 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 750 | 237 |
+| B | dein 10%-Code, und die Unterlagen dazu | 750 | 242 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=28%, B=30%)
 
