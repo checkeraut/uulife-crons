@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-09-16 17:11 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-09-17 17:10 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 4778 | 1853 | 38% | 128 | 3 | 0 | 0 |
+| 4963 | 1857 | 37% | 129 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} reorder | 934 | 302 |
-| B | the part of reordering nobody checks | 933 | 260 |
+| A | your {{compound}} reorder | 945 | 303 |
+| B | the part of reordering nobody checks | 944 | 260 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=32%, B=28%)
 
@@ -26,12 +26,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 12022 | 3154 | 26% | 125 | 11 | 2 | 0 |
+| 12573 | 3175 | 25% | 127 | 11 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 2397 | 632 |
-| B | your 10% code, and the paperwork behind it | 2396 | 579 |
+| A | what most peptide vendors will not show you | 2453 | 633 |
+| B | your 10% code, and the paperwork behind it | 2453 | 583 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=16%, B=14%)
 
@@ -44,12 +44,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 6626 | 1741 | 26% | 174 | 19 | 4 | 0 |
+| 6970 | 1766 | 25% | 177 | 19 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | was dir die meisten Peptid-Anbieter nicht zeigen | 1373 | 296 |
-| B | dein 10%-Code, und die Unterlagen dazu | 1372 | 303 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 1398 | 299 |
+| B | dein 10%-Code, und die Unterlagen dazu | 1398 | 305 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=17%, B=18%)
 
