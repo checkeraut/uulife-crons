@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-09-18 16:36 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-09-19 15:58 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,14 +8,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 5148 | 1869 | 36% | 131 | 3 | 0 | 0 |
+| 5333 | 1879 | 35% | 131 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} reorder | 960 | 304 |
-| B | the part of reordering nobody checks | 960 | 261 |
+| A | your {{compound}} reorder | 1009 | 306 |
+| B | the part of reordering nobody checks | 1009 | 261 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=32%, B=27%)
+**Acción:** A/B sigue juntando datos (tasas: A=30%, B=26%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -26,14 +26,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 13124 | 3192 | 24% | 128 | 11 | 2 | 0 |
+| 13675 | 3211 | 23% | 130 | 11 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 2537 | 637 |
-| B | your 10% code, and the paperwork behind it | 2536 | 585 |
+| A | what most peptide vendors will not show you | 2660 | 641 |
+| B | your 10% code, and the paperwork behind it | 2659 | 590 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=15%, B=13%)
+**Acción:** A/B sigue juntando datos (tasas: A=14%, B=12%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -44,14 +44,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 7314 | 1784 | 24% | 178 | 19 | 4 | 0 |
+| 7658 | 1813 | 23% | 179 | 19 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | was dir die meisten Peptid-Anbieter nicht zeigen | 1419 | 300 |
-| B | dein 10%-Code, und die Unterlagen dazu | 1419 | 307 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 1499 | 302 |
+| B | dein 10%-Code, und die Unterlagen dazu | 1499 | 309 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=17%, B=18%)
+**Acción:** A/B sigue juntando datos (tasas: A=16%, B=17%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
