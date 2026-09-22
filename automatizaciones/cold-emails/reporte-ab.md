@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-09-21 18:15 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-09-22 17:06 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 5703 | 1906 | 33% | 133 | 3 | 0 | 0 |
+| 5888 | 1917 | 32% | 137 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} reorder | 1052 | 309 |
-| B | the part of reordering nobody checks | 1052 | 264 |
+| A | your {{compound}} reorder | 1059 | 309 |
+| B | the part of reordering nobody checks | 1059 | 266 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=29%, B=25%)
 
@@ -26,12 +26,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 14777 | 3254 | 22% | 134 | 12 | 2 | 0 |
+| 15329 | 3272 | 21% | 135 | 12 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 2788 | 645 |
-| B | your 10% code, and the paperwork behind it | 2787 | 594 |
+| A | what most peptide vendors will not show you | 2805 | 648 |
+| B | your 10% code, and the paperwork behind it | 2805 | 596 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=14%, B=12%)
 
@@ -44,12 +44,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 8346 | 1841 | 22% | 180 | 19 | 4 | 0 |
+| 8690 | 1844 | 21% | 182 | 19 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | was dir die meisten Peptid-Anbieter nicht zeigen | 1635 | 308 |
-| B | dein 10%-Code, und die Unterlagen dazu | 1634 | 310 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 1644 | 308 |
+| B | dein 10%-Code, und die Unterlagen dazu | 1644 | 310 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=14%, B=15%)
 
