@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-04 16:55 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-05 20:42 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,14 +8,14 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 8108 | 3193 | 39% | 146 | 3 | 0 | 0 |
+| 8293 | 3204 | 38% | 148 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} reorder | 1441 | 437 |
-| B | the part of reordering nobody checks | 1440 | 383 |
+| A | your {{compound}} reorder | 1468 | 440 |
+| B | the part of reordering nobody checks | 1468 | 385 |
 
-**Acción:** A/B sigue juntando datos (tasas: A=30%, B=27%)
+**Acción:** A/B sigue juntando datos (tasas: A=30%, B=26%)
 
 **Últimas rotaciones:**
 - (sin rotaciones aún)
@@ -26,12 +26,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 21941 | 6645 | 30% | 145 | 12 | 2 | 0 |
+| 22492 | 6661 | 29% | 145 | 12 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 3926 | 1251 |
-| B | your 10% code, and the paperwork behind it | 3926 | 1176 |
+| A | what most peptide vendors will not show you | 4016 | 1255 |
+| B | your 10% code, and the paperwork behind it | 4015 | 1177 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=28%, B=26%)
 
@@ -44,12 +44,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 12818 | 3909 | 30% | 189 | 21 | 4 | 0 |
+| 13162 | 3924 | 29% | 189 | 21 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | was dir die meisten Peptid-Anbieter nicht zeigen | 2335 | 658 |
-| B | dein 10%-Code, und die Unterlagen dazu | 2335 | 651 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 2357 | 658 |
+| B | dein 10%-Code, und die Unterlagen dazu | 2357 | 654 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=27%, B=27%)
 
