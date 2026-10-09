@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-08 18:56 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-09 18:26 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 8848 | 3225 | 36% | 151 | 3 | 0 | 0 |
+| 9033 | 3229 | 35% | 151 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} reorder | 1629 | 443 |
-| B | the part of reordering nobody checks | 1629 | 389 |
+| A | your {{compound}} reorder | 1640 | 443 |
+| B | the part of reordering nobody checks | 1640 | 389 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=27%, B=24%)
 
@@ -26,12 +26,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 24145 | 6685 | 27% | 150 | 13 | 2 | 0 |
+| 24649 | 6701 | 27% | 151 | 13 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 4491 | 1259 |
-| B | your 10% code, and the paperwork behind it | 4491 | 1184 |
+| A | what most peptide vendors will not show you | 4522 | 1261 |
+| B | your 10% code, and the paperwork behind it | 4522 | 1184 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=24%, B=22%)
 
@@ -44,12 +44,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 14194 | 3952 | 27% | 190 | 21 | 4 | 0 |
+| 14538 | 3962 | 27% | 190 | 21 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | was dir die meisten Peptid-Anbieter nicht zeigen | 2664 | 663 |
-| B | dein 10%-Code, und die Unterlagen dazu | 2663 | 660 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 2691 | 665 |
+| B | dein 10%-Code, und die Unterlagen dazu | 2690 | 660 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=23%, B=23%)
 
