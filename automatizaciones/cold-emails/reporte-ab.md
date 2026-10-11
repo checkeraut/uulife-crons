@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-10 17:24 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-11 17:43 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 9033 | 3230 | 35% | 151 | 3 | 0 | 0 |
+| 9033 | 3234 | 35% | 151 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
 | A | your {{compound}} reorder | 1640 | 443 |
-| B | the part of reordering nobody checks | 1640 | 390 |
+| B | the part of reordering nobody checks | 1640 | 391 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=27%, B=24%)
 
@@ -26,12 +26,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 24649 | 6709 | 27% | 152 | 13 | 2 | 0 |
+| 24649 | 6716 | 27% | 152 | 13 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 4522 | 1262 |
-| B | your 10% code, and the paperwork behind it | 4522 | 1184 |
+| A | what most peptide vendors will not show you | 4522 | 1263 |
+| B | your 10% code, and the paperwork behind it | 4522 | 1186 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=24%, B=22%)
 
@@ -44,7 +44,7 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 14538 | 3964 | 27% | 190 | 21 | 4 | 0 |
+| 14538 | 3965 | 27% | 190 | 21 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
