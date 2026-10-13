@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-12 21:20 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-13 19:24 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,7 +8,7 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 9033 | 3239 | 35% | 151 | 3 | 0 | 0 |
+| 9033 | 3240 | 35% | 151 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
@@ -26,12 +26,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 24649 | 6718 | 27% | 152 | 13 | 2 | 0 |
+| 24649 | 6728 | 27% | 152 | 13 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | what most peptide vendors will not show you | 4522 | 1264 |
-| B | your 10% code, and the paperwork behind it | 4522 | 1186 |
+| A | what most peptide vendors will not show you | 4522 | 1265 |
+| B | your 10% code, and the paperwork behind it | 4522 | 1187 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=24%, B=22%)
 
@@ -44,12 +44,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 14538 | 3967 | 27% | 191 | 21 | 4 | 0 |
+| 14538 | 3970 | 27% | 191 | 21 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
 | A | was dir die meisten Peptid-Anbieter nicht zeigen | 2691 | 667 |
-| B | dein 10%-Code, und die Unterlagen dazu | 2690 | 660 |
+| B | dein 10%-Code, und die Unterlagen dazu | 2690 | 661 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=23%, B=23%)
 
