@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-13 19:24 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-14 17:24 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,12 +8,12 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 9033 | 3240 | 35% | 151 | 3 | 0 | 0 |
+| 9033 | 3246 | 35% | 152 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | your {{compound}} reorder | 1640 | 444 |
-| B | the part of reordering nobody checks | 1640 | 392 |
+| A | your {{compound}} reorder | 1640 | 446 |
+| B | the part of reordering nobody checks | 1640 | 393 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=27%, B=24%)
 
@@ -26,7 +26,7 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 24649 | 6728 | 27% | 152 | 13 | 2 | 0 |
+| 24649 | 6729 | 27% | 152 | 13 | 2 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
