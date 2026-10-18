@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-17 15:47 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-18 16:01 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,7 +8,7 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 9033 | 3248 | 35% | 153 | 3 | 0 | 0 |
+| 9033 | 3249 | 35% | 154 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
