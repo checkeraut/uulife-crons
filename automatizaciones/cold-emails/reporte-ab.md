@@ -1,6 +1,6 @@
 # Reporte automático — A/B de asuntos (cold)
 
-_Última corrida: 2026-10-18 16:01 UTC (optimizador diario en GitHub Actions)_
+_Última corrida: 2026-10-19 18:46 UTC (optimizador diario en GitHub Actions)_
 
 Sin alertas.
 
@@ -8,7 +8,7 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 9033 | 3249 | 35% | 154 | 3 | 0 | 0 |
+| 9033 | 3250 | 35% | 154 | 3 | 0 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
@@ -44,11 +44,11 @@ Sin alertas.
 
 | enviados | abiertos | apertura | clicks | respuestas | rebotes | bajas |
 |---|---|---|---|---|---|---|
-| 14538 | 3977 | 27% | 192 | 21 | 4 | 0 |
+| 14538 | 3979 | 27% | 193 | 21 | 4 | 0 |
 
 | variante | asunto | enviados | aperturas únicas |
 |---|---|---|---|
-| A | was dir die meisten Peptid-Anbieter nicht zeigen | 2691 | 669 |
+| A | was dir die meisten Peptid-Anbieter nicht zeigen | 2691 | 670 |
 | B | dein 10%-Code, und die Unterlagen dazu | 2690 | 661 |
 
 **Acción:** A/B sigue juntando datos (tasas: A=23%, B=23%)
